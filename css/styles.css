@@ -29,6 +29,15 @@ body {
     letter-spacing: 0.03em;  
   }
 
+  /* Обнуляем отступы */
+  h1,
+  h2,
+  h3,
+  p,
+  ul {
+      margin: 0;
+  }
+
 /* Логотип */
 .logo {
     color: var(--logo-color);
@@ -38,6 +47,8 @@ body {
     font-weight: 700;
     font-size: 26px;
     line-height: 1.19;
+    padding: 24px 0;
+    margin-right: 44px;
 }
 
 .sub-logo {
@@ -52,8 +63,6 @@ body {
  .team-list,
  .address-list,
  .portfolio-btn-list,
- .project-list,
- .portfolio-btn-list,
  .project-list {
     list-style: none;
     padding-left: 0;
@@ -67,11 +76,13 @@ body {
     font-weight: 500;
     line-height: 1.14;
     letter-spacing: 0.02em;
+    margin-left: 50px;
 }
 
 /* Переопределаем цвет контактов */
 .header .contact-link {
     color: var(--text-color);
+    
 }
 
 /* Переопределяем цвет ссылок при наведении мышей или фокусе с клафиатуры,
@@ -87,15 +98,19 @@ body {
     }
 
 /* Разделительная черта между шапкой и остальной страницей */
-.separate-line {
-    height: 0px;
-    border: 1px solid var(--separator-line-color);
+.head {
+    border-bottom: 1px solid var(--separator-line-color);
 }
 
 /* Основной заголовок */
 .hero {
     color: var(--bg-color);
     background-color: var(--additional-bg-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 200px 0;
 }
 
 .slogan {
@@ -106,6 +121,7 @@ body {
     letter-spacing: 0.06em;
     text-align: center;
     text-transform: uppercase;
+    margin-bottom: 30px;
 }
 
 /* Кнопка */
@@ -136,6 +152,7 @@ body {
     font-size: 14px;
     line-height: 1.14;
     text-transform: uppercase;
+    margin-bottom: 10px;
 }
 
 /* Заголовки секций */
@@ -145,6 +162,12 @@ body {
     font-size: 36px;
     line-height: 1.17;
     text-align: center;
+    margin-bottom: 50px;
+}
+
+/* Меняем фон в секции "Наша команда" */
+.team {
+    background-color: var(--secondary-bg-color);
 }
 
 /* Наша команда */
@@ -162,12 +185,14 @@ body {
     font-weight: 500;
     font-size: 16px;
     line-height: 1.19;
+    margin: 30px auto 10px;
 }
 
 .team-description {
     color: var(--text-color);
     font-size: 16px;
     line-height: 1.19;
+    margin-bottom: 30px;
 }
 
 /* Подвал */
@@ -175,14 +200,24 @@ body {
     background-color: var(--additional-bg-color);
 }
 
+.footer-container {
+    padding: 60px 15px;
+    width: 1200px;
+    margin: auto;
+}
+
 /* Оформляем блок адреса */
 .address-list{
     font-style: normal;
+    margin-top: 20px;
+    margin-bottom: 0;
 }
+
 
 /* Переопределяем цвета в подвале */
 .footer .logo {
     color: var(--bg-color);
+    padding: 0;
 }
 
 .address-link {
@@ -192,6 +227,15 @@ body {
 
 .footer .contact-link {
     color: var(--secondary-contact-color);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.71;
+    letter-spacing: 0.03em;
+    margin-left: 0;
+}
+
+.address-list li {
+    margin-top: 5px; 
 }
 
 /* Кнопки портфолио */
@@ -205,6 +249,7 @@ body {
     font-size: 16px;
     line-height: 1.62;
     text-align: center;
+    margin: 0 4px;
 }
 
 
@@ -222,9 +267,26 @@ body {
 
 /* Карточка проекта */
 .project-item {
-    border: 1px solid var(--border-color);
+    margin-left: 30px;
+    margin-top: 30px;
 }
 
+/* Убираем лишниее пространство под картинкой */
+.project-item img,
+.activites-list img,
+.team-list img{
+    display: block;
+}
+
+/* Рамочка под карточкой проекта */
+.project-description {
+    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    border-left: 1px solid var(--border-color);
+    padding: 20px 24px;
+}
+
+/* Заголовок проекта */
 .project-title {
     color: var(--header-color);
     font-weight: 700;
@@ -233,9 +295,68 @@ body {
     letter-spacing: 0.06em;
 }
 
-.project-description {
+/* Тип проекта */
+.project-type {
     font-size: 16px;
     line-height: 1.88;
+    margin: 4px 0 0 0;
+}
+
+/* Ширина и отступы основного содержимого*/
+.container {
+    width: 1200px;
+    margin: auto;
+    padding: 0 15px;
+}
+
+/* отступы внутри секции */
+.section {
+    padding: 94px 15px;
+}
+
+/* Один отступ оказался лишним */
+.section.activites {
+    padding-top:0;
+}
+
+/* Ещё один отступ меньший чем 94px */
+.section.portfolio {
+    padding-bottom: 59px;
+}
+
+/* Flex-контейнеры где надо */
+.header,
+.nav,
+.nav-list,
+.contact-list,
+.features-list,
+.activites-list,
+.team-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Список кнопок фильтра */
+.portfolio-btn-list {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+/* Блок отдельного преимущества */
+.features-item {
+    width: 270px;
+    margin-right: 30px;
+}
+
+/* Список работ в портфолио */
+.project-list {
+    margin-left: -30px;
+    margin-top: -30px;
+    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 
